@@ -20,7 +20,7 @@ variable "green_active" {
 
 variable "blue_tag" {
   type    = string
-  default = "v1.2.0"
+  default = "v1.3.0"
 }
 
 variable "green_tag" {

@@ -42,7 +42,7 @@ def api_index():
 @app.route('/api/users', methods=['GET'])
 def api_list_users():
     users = Users.query.all()
-    return jsonify({"users": [{"id": user.id, "username": user.username, "given_name": user.given_name} for user in users]})
+    return jsonify({"users": [{"id": user.id, "username": user.username, "given_name": f"{user.first_name} {user.last_name}"} for user in users]})
 
 @app.route('/api/users', methods=['POST'])
 def api_create_user():
@@ -52,12 +52,12 @@ def api_create_user():
     db.session.add(user)
     db.session.commit()
 
-    return jsonify({"user": {"id": user.id, "username": user.username, "given_name": user.given_name}})
+    return jsonify({"user": {"id": user.id, "username": user.username, "given_name": f"{user.first_name} {user.last_name}"}})
 
 @app.route('/api/users/<user_id>', methods=['GET'])
 def api_get_user(user_id):
     user = Users.query.filter_by(id=user_id).first()
-    return jsonify({"user": {"id": user.id, "username": user.username, "given_name": user.given_name}})
+    return jsonify({"user": {"id": user.id, "username": user.username, "given_name": f"{user.first_name} {user.last_name}"}})
 
 ### main ###
 

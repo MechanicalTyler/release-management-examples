@@ -15,7 +15,7 @@ variable "blue_active" {
 
 variable "green_active" {
   type    = bool
-  default = false
+  default = true
 }
 
 variable "blue_tag" {
@@ -25,5 +25,5 @@ variable "blue_tag" {
 
 variable "green_tag" {
   type    = string
-  default = "v1.0.0"
+  default = "v1.1.0"
 }

@@ -25,5 +25,5 @@ variable "blue_tag" {
 
 variable "green_tag" {
   type    = string
-  default = "v1.3.0"
+  default = "v1.4.0"
 }

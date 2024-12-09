@@ -15,7 +15,6 @@ db.init_app(app)
 class Users(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     username = db.Column(db.String(80), unique=True, nullable=False)
-    given_name = db.Column(db.String(80), nullable=False)
     first_name = db.Column(db.String(80), nullable=False)
     last_name = db.Column(db.String(80), nullable=False)
 
@@ -48,7 +47,7 @@ def api_list_users():
 def api_create_user():
     json_data = request.json
 
-    user = Users(username=json_data['username'], given_name=json_data['given_name'], first_name=json_data['given_name'].split()[0], last_name=json_data['given_name'].split()[1])
+    user = Users(username=json_data['username'], first_name=json_data['given_name'].split()[0], last_name=json_data['given_name'].split()[1])
     db.session.add(user)
     db.session.commit()
 

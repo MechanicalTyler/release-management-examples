@@ -26,6 +26,12 @@ class Posts(db.Model):
 with app.app_context():
     db.create_all()
 
+### Migrations ###
+
+with app.app_context():
+    from flask_migrate import Migrate
+    migrate = Migrate(app, db)
+
 ### Routes ###
 @app.route('/api', methods=['GET'])
 def api_index():
